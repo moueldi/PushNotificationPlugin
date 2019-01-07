@@ -122,7 +122,8 @@ namespace Plugin.PushNotification
         public void OnReceived(IDictionary<string, object> parameters)
         {
             System.Diagnostics.Debug.WriteLine($"{DomainTag} - OnReceived");
-
+            //fix ignore empty notification,threat it as silent.
+            if (parameters.Count == 0) return;
             if (parameters.TryGetValue(SilentKey, out object silent) && (silent.ToString() == "true" || silent.ToString() == "1"))
                 return;
 
