@@ -122,8 +122,15 @@ namespace Plugin.PushNotification
         public void OnReceived(IDictionary<string, object> parameters)
         {
             System.Diagnostics.Debug.WriteLine($"{DomainTag} - OnReceived");
-            //fix ignore empty notification,threat it as silent.
+            //fix notification threated as silent if content text is not provided
             if (parameters.Count == 0) return;
+            if (
+                !parameters.TryGetValue(BodyKey, out object bodyText) &&
+                !parameters.TryGetValue(MessageKey, out object messageText) &&
+                !parameters.TryGetValue(TextKey, out object textText) 
+                ) 
+             return;
+
             if (parameters.TryGetValue(SilentKey, out object silent) && (silent.ToString() == "true" || silent.ToString() == "1"))
                 return;
 
@@ -146,6 +153,8 @@ namespace Plugin.PushNotification
                 message = $"{subtitle}";
             else if (parameters.TryGetValue(TextKey, out object text))
                 message = $"{text}";
+
+            
 
             if (!string.IsNullOrEmpty(PushNotificationManager.NotificationContentTitleKey) && parameters.TryGetValue(PushNotificationManager.NotificationContentTitleKey, out object notificationContentTitle))
                 title = notificationContentTitle.ToString();

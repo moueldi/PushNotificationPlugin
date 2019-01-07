@@ -4,6 +4,13 @@
     <TargetFramework>netstandard1.0</TargetFramework>
     <AssemblyName>Plugin.PushNotification</AssemblyName>
     <RootNamespace>Plugin.PushNotification</RootNamespace>
+    <Version>1.0.4</Version>
+    <Company>Ageas Services</Company>
+    <Authors>mehdi oueldi</Authors>
+    <Description>fixed version of https://github.com/CrossGeeks/PushNotificationPlugin</Description>
+    <PackageLicenseUrl>https://github.com/CrossGeeks/PushNotificationPlugin</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/CrossGeeks/PushNotificationPlugin</PackageProjectUrl>
+    <PackageReleaseNotes>fix: threat no content notification as silent notification</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
