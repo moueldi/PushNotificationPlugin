@@ -1,7 +1,7 @@
 ## Push Notification Plugin for Xamarin iOS and Android
 Simple cross platform plugin for handling push notifications. Uses FCM for Android and APS for iOS.
 
-## Content of this forked Repo
+## Content of this fork
 This  version threat any notification as silent when the message contains no title or body.
 Actualy, this behaviour was only implemented for Android
 
